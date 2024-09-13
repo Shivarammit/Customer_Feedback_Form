@@ -1,0 +1,29 @@
+<html>
+    <link rel="stylesheet" href="sender.css">
+    <div class="form-container">
+        <form onsubmit="return check()">
+            <img style="width: 120px; height: 50px;" src ="WhatsApp Image 2024-07-14 at 10.03.18_edde10e9.jpg"><br>
+            <label for="uname">Username</label>
+            <input type="text" id="uname" name="uname">
+            <label for="pass">Password</label>
+            <input type="password" id="pass" name="pass">
+            <span id="errormsg" class="error">Username or password doesn't match</span>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        function check(){
+            let uname=document.getElementById('uname').value;
+            let pass=document.getElementById('pass').value;
+            if(uname === 'gpsquality' && pass==='gpsquality'){
+                errormsg.style.display='none';
+                window.location.href='Sender_form.html';
+                return false;
+            }
+            else{
+                errormsg.style.display= 'block';
+                return false;
+            }
+        }
+    </script>
+</html>

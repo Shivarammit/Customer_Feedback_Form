@@ -1,0 +1,42 @@
+html,body{
+    background-color: rgb(228, 221, 221);
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+input{
+    height:30px;
+    width: 250px;
+    border-radius: 3px;
+    border-color: #99b9dc;
+}
+.middle{
+    text-align: center;
+}
+button {
+    width: 120px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.form_section{
+    padding: 20px;
+    background-color:#fff;
+    border-radius: 10px; 
+    margin: 10px;
+    max-height: fit-content;
+    max-width: 100%;
+    box-shadow: 4px 4px 4px rgb(98, 96, 96);
+    overflow-x: auto;
+}

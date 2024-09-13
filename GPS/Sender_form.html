@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sender.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Sender Form</title>
+</head>
+<body>
+    <img src="WhatsApp Image 2024-07-14 at 10.03.18_edde10e9.jpg" style="position: absolute; top: 0px; left: 0px; width: 120px; height: 50px;">
+    <div class="form-container">
+        <form onsubmit="return validateEmail()" action="sender.php" method="post">
+            <label>GPS Project No:</label>
+            <input type="text" id="pno" name="pno" required>
+            <label for="jno">Job No:(If Applicable)</label>
+            <input type="text" id="jno" name="jno">
+            <label>Client Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label>Client Name:(Person Name)</label>
+            <input type="text" id="cname" name="cname" required>
+            <label>Client Designation:</label>
+            <input type="text" id="desg" name="desg" required>
+            <label for="sname">Sender's Name</label>
+            <input type="text" id="sname" name="sname" required>
+            <label for="smail">Sender's Email ID</label>
+            <input type="text" id="smail" name="smail" required>
+            <span class="error" id="errormsg" style="display: none;">The Client email should not be from GPS</span>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        function validateEmail() {
+            let email = document.getElementById('email').value;
+            let errorMessage = document.getElementById('errormsg');
+
+            // Regular expression to check if email ends with 'gpsoman.com'
+            let regex = /@gpsoman\.com$/;
+
+            if (regex.test(email)) {
+                errorMessage.style.display = 'block';
+                return false;
+            } else {
+                errorMessage.style.display = 'none';
+            }
+            return true;
+        }
+        document.getElementById('pno').addEventListener('input', function(event) {
+            event.target.value = event.target.value.toUpperCase();
+        });
+        document.getElementById('cname').addEventListener('input', function(event) {
+            event.target.value = event.target.value.toUpperCase();
+        });
+	document.getElementById('desg').addEventListener('input', function(event) {
+            event.target.value = event.target.value.toUpperCase();
+        });
+        document.getElementById('sname').addEventListener('input', function(event) {
+            event.target.value = event.target.value.toUpperCase();
+        });
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        if(status){
+            alert('Email sent successfully');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<?php
+    $conn=new mysqli('localhost','root','youpassword','gps');
+    $pno=$_POST['pno'];
+    $stm1="SELECT * FROM feedback WHERE pno = ?";
+    $stmt1=$conn->prepare($stm1);
+    $stmt1->bind_param('s',$pno);
+    $stmt1->execute();
+    $result=$stmt1->get_result();
+    echo $result
+?>
+    <link rel="stylesheet"  href="retrival.css">
+    <img src="WhatsApp Image 2024-07-14 at 10.03.18_edde10e9.jpg">
+    <div class="form_section">
+    <form action="retrival.php" method="post">
+        <div class="middle">
+        <label>Project Number</label>
+        <input type="text" id="pno" name="pno" placeholder="Project Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>Contract Number:</label>
+        <input type="text" id="con_no" name="con_no" placeholder="Contract Number"><br><br><br>
+        <label>From date:</label>
+        <input type="date" id="fdate" name="fdate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>To date:</label>
+        <input type="date" id="tdate" name="tdate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>Client Name</label>
+        <input type="text" id="cname" name="cname" placeholder="Client Name"><br><br><br>
+        <button>Search</button>
+    </form>
+    </div>
+    
+</html>
